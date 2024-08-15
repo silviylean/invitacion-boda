@@ -64,8 +64,8 @@
     <div id="popup" style="display: none;">
         <div id="popup-content">
             <p>¿Deseas ver la invitación con música?</p>
-            <button onclick="showInvitation(true)">Sí</button>
-            <button onclick="showInvitation(false)">No</button>
+            <button onclick="redirectToInvitation(true)">Sí</button>
+            <button onclick="redirectToInvitation(false)">No</button>
         </div>
     </div>
 
@@ -78,18 +78,15 @@
             }, 5000); // 5000 ms = 5 segundos
         };
 
-        // Función para redireccionar a la invitación de Canva
-        function showInvitation(withMusic) {
-            document.getElementById('popup').style.display = 'none';
+        // Función para redirigir a la invitación de Canva
+        function redirectToInvitation(withMusic) {
             if (withMusic) {
                 // Reproducir música si eligen la opción
                 var audio = new Audio('musica.mp3');
                 audio.play();
             }
             // Redirigir a la invitación en Canva
-            setTimeout(function() {
-                window.location.href = 'https://boda-silviylean.my.canva.site/bienvenidos-a-la-invitaci-n-de';
-            }, 500); // Tiempo de espera para iniciar la redirección
+            window.location.href = https://boda-silviylean.my.canva.site/bienvenidos-a-la-invitaci-n-de';
         }
     </script>
 </body>
