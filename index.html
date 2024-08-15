@@ -1,67 +1,94 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <style>
-        #loader {
-          position: fixed;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%);
-          z-index: 1000;
-          width: 100px;
-          height: 100px;
-          border: 10px solid #f3f3f3;
-          border-top: 10px solid #3498db;
-          border-radius: 50%;
-          animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-        
-        .hidden {
-          display: none;
-        }
-    </style>
-
-    <div id="loader"></div>
-        <script>
-        window.onload = function() {
-          document.getElementById("loader").classList.add("hidden");
-        }
-    </script>
-        
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="0; url=https://boda-silviylean.my.canva.site/bienvenidos-a-la-invitaci-n-de" />
-    <title>Redirigiendo...</title>
+    <title>Invitación de Boda</title>
+    <style>
+        /* Estilo para el loader */
+        #loader {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        /* Estilo para el pop-up */
+        #popup {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+
+        #popup-content {
+            background-color: #e4e0e0;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-family: 'Pompiere', sans-serif;
+            color: black;
+        }
+
+        #popup button {
+            background-color: #b2a891;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            color: black;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    <div id="musicPopup" style="position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); color:white; z-index:9999; display:flex; justify-content:center; align-items:center;">
-      <div style="text-align:center;">
-        <p>¿Quieres ver la invitación con música?</p>
-        <button onclick="redirectWithMusic()">Sí</button>
-        <button onclick="redirectWithoutMusic()">No</button>
-      </div>
+    <!-- Loader al inicio -->
+    <div id="loader">
+        <img src="loader.gif" alt="Loading...">
     </div>
+
+    <!-- Pop-up para seleccionar música -->
+    <div id="popup" style="display: none;">
+        <div id="popup-content">
+            <p>¿Deseas ver la invitación con música?</p>
+            <button onclick="showInvitation(true)">Sí</button>
+            <button onclick="showInvitation(false)">No</button>
+        </div>
+    </div>
+
+    <!-- Contenido de la invitación -->
+    <div id="content" style="display:none;">
+        <iframe id="invitation-frame" src="https://boda-silviylean.my.canva.site/bienvenidos-a-la-invitaci-n-de" style="width:100%; height:100vh; border:none;"></iframe>
+    </div>
+
     <script>
-    function redirectWithMusic() {
-      var audio = new Audio('musica.mp3');
-      audio.play();
-      setTimeout(function(){
-        window.location.href = 'https://boda-silviylean.my.canva.site/bienvenidos-a-la-invitaci-n-de';
-      }, 1000); // El retraso de 1 segundo permite que la música comience antes de redirigir
-    }
-    
-    function redirectWithoutMusic() {
-      window.location.href = 'https://boda-silviylean.my.canva.site/bienvenidos-a-la-invitaci-n-de';
-    }
+        window.onload = function() {
+            document.getElementById('loader').style.display = 'none';
+            document.getElementById('popup').style.display = 'flex';
+        };
+
+        function showInvitation(withMusic) {
+            document.getElementById('popup').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+            if (withMusic) {
+                // Reproducir música si eligen la opción
+                var audio = new Audio('musica.mp3');
+                audio.play();
+            }
+        }
     </script>
-
-
-
-    
 </body>
 </html>
