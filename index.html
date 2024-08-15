@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invitación de Boda</title>
     <style>
+        /* Color de fondo del cuerpo del documento */
+        body {
+            background-color: #e4e0e0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
         /* Estilo para el loader */
         #loader {
             position: fixed;
@@ -70,12 +81,12 @@
     </div>
 
     <script>
-        // Mostrar el loader por al menos 5 segundos, luego mostrar el pop-up
+        // Mostrar el loader por al menos 3 segundos, luego mostrar el pop-up
         window.onload = function() {
             setTimeout(function() {
                 document.getElementById('loader').style.display = 'none';
                 document.getElementById('popup').style.display = 'flex';
-            }, 5000); // 5000 ms = 5 segundos
+            }, 3000); // 3000 ms = 3 segundos
         };
 
         // Redirigir con música
