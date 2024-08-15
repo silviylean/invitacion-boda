@@ -75,11 +75,15 @@
     </div>
 
     <script>
+        // Mostrar el loader por al menos 5 segundos
         window.onload = function() {
-            document.getElementById('loader').style.display = 'none';
-            document.getElementById('popup').style.display = 'flex';
+            setTimeout(function() {
+                document.getElementById('loader').style.display = 'none';
+                document.getElementById('popup').style.display = 'flex';
+            }, 5000); // 5000 ms = 5 segundos
         };
 
+        // Función para mostrar la invitación con o sin música
         function showInvitation(withMusic) {
             document.getElementById('popup').style.display = 'none';
             document.getElementById('content').style.display = 'block';
