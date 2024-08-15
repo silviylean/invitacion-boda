@@ -64,13 +64,13 @@
     <div id="popup" style="display: none;">
         <div id="popup-content">
             <p>¿Deseas ver la invitación con música?</p>
-            <button onclick="redirectToInvitation(true)">Sí</button>
-            <button onclick="redirectToInvitation(false)">No</button>
+            <button onclick="redirectWithMusic()">Sí</button>
+            <button onclick="redirectWithoutMusic()">No</button>
         </div>
     </div>
 
     <script>
-        // Mostrar el loader por al menos 5 segundos
+        // Mostrar el loader por al menos 5 segundos, luego mostrar el pop-up
         window.onload = function() {
             setTimeout(function() {
                 document.getElementById('loader').style.display = 'none';
@@ -78,15 +78,16 @@
             }, 5000); // 5000 ms = 5 segundos
         };
 
-        // Función para redirigir a la invitación de Canva
-        function redirectToInvitation(withMusic) {
-            if (withMusic) {
-                // Reproducir música si eligen la opción
-                var audio = new Audio('musica.mp3');
-                audio.play();
-            }
-            // Redirigir a la invitación en Canva
-            window.location.href = https://boda-silviylean.my.canva.site/bienvenidos-a-la-invitaci-n-de';
+        // Redirigir con música
+        function redirectWithMusic() {
+            var audio = new Audio('musica.mp3');
+            audio.play();
+            window.location.href = 'https://boda-silviylean.my.canva.site/bienvenidos-a-la-invitaci-n-de';
+        }
+
+        // Redirigir sin música
+        function redirectWithoutMusic() {
+            window.location.href = 'https://boda-silviylean.my.canva.site/bienvenidos-a-la-invitaci-n-de';
         }
     </script>
 </body>
