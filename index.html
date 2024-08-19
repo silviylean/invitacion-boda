@@ -29,40 +29,6 @@
             justify-content: center;
             z-index: 9999;
         }
-
-        /* Estilo para el pop-up */
-        #popup {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-        }
-
-        #popup-content {
-            background-color: #e4e0e0;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            font-family: 'Pompiere', sans-serif;
-            color: black;
-        }
-
-        #popup button {
-            background-color: #b2a891;
-            border: none;
-            padding: 10px 20px;
-            margin: 10px;
-            color: black;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
     </style>
 </head>
 <body>
@@ -71,35 +37,14 @@
         <img src="loader.gif" alt="Loading...">
     </div>
 
-    <!-- Pop-up para seleccionar música -->
-    <div id="popup" style="display: none;">
-        <div id="popup-content">
-            <p>¿Deseas ver la invitación con música?</p>
-            <button onclick="redirectWithMusic()">Sí</button>
-            <button onclick="redirectWithoutMusic()">No</button>
-        </div>
-    </div>
-
     <script>
-        // Mostrar el loader por al menos 3 segundos, luego mostrar el pop-up
+        // Mostrar el loader por al menos 3 segundos, luego redirigir
         window.onload = function() {
             setTimeout(function() {
                 document.getElementById('loader').style.display = 'none';
-                document.getElementById('popup').style.display = 'flex';
+                window.location.href = 'https://boda-silviylean.my.canva.site/bienvenidos-a-la-invitaci-n-de';
             }, 3000); // 3000 ms = 3 segundos
         };
-
-        // Redirigir con música
-        function redirectWithMusic() {
-            var audio = new Audio('musica.mp3');
-            audio.play();
-            window.location.href = 'https://boda-silviylean.my.canva.site/bienvenidos-a-la-invitaci-n-de';
-        }
-
-        // Redirigir sin música
-        function redirectWithoutMusic() {
-            window.location.href = 'https://boda-silviylean.my.canva.site/bienvenidos-a-la-invitaci-n-de';
-        }
     </script>
 </body>
 </html>
